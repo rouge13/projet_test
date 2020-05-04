@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Page about</h1>
+    <ul>
+        {% for fruit in fruits %}
+
+            <li> {{ fruit.name }} : {{ fruit.price }} euros au kg</li>
+            {% if fruit.allergy is defined %}
+                {% for allergy in fruit.allergy %}
+                    <ul>
+                        <li>{{ allergy }}</li>
+                    </ul>
+                {% endfor %}
+            {% endif %}
+            {% endfor %}
+
+    </ul>
+{% endblock %}

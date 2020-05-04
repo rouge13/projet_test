@@ -1,0 +1,17 @@
+
+<div style="background-color: #718C00">
+    <nav class="navbar navbar-expand-lg " >
+        <a class="navbar-brand" href="{{ path ('home') }}">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <a class="nav-item nav-link {{  app.request.pathInfo == '/' ? 'active' : '' }}" href="{{ path('home') }}">Home</a>
+            <a class="nav-item nav-link {{ 'about' in app.request.pathInfo  ? 'active' : '' }}" href="{{ path('about') }}">About</a>
+            <a class="nav-item nav-link {{  'Franck' in app.request.pathInfo ? 'active' : '' }}" href="{{ path('route_name', {name : 'Franck'}) }}">Aller vers Franck</a>
+            <a class="nav-item nav-link {{  'Emilie' in app.request.pathInfo ? 'active' : '' }}" href="{{ path('route_name', {name : 'Emilie'}) }}">Aller vers Emilie</a>
+
+        </div>
+    </nav>
+</div>
