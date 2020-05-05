@@ -1,15 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h4>Ceci est la home page</h4>
+    <h4>Ceci est la home page</h4>
+
+    <ul>
+        {% for user in users %}
+            <li>{{ user.name }} qui a : {{ user.age }} ans de sexe :
+                {% if user.gender == "F" %}
+                    Feminin et elle exerce le métier de :
+                {% endif %}
+                {% if user.gender == "M" %}
+                    Masculin et il exerce le métier de :
+                {% endif %}
+
+               {{ user.job.name }}
+            </li>
+        {% endfor %}
+    </ul>
 
 
-<h5>Bienvenue : {{ name }}</h5>
-{% if name == 'Julien' %}
+    {#<h5>Bienvenue : {{ name }}</h5>#}
+    {#{% if name == 'Julien' %}#}
 
-    <h3>Ton accent est chantant</h3>
+    {#    <h3>Ton accent est chantant</h3>#}
 
-{% endif %}
+    {#{% endif %}#}
 
     <a  href="{{ path('route_name', {name : 'Julien'}) }}">Aller vers Julien</a>
     <a  href="{{ path('route_name', {name : 'Admin'}) }}">Aller vers Admin</a>

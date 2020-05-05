@@ -4,13 +4,15 @@
 namespace App\Controller;
 
 
+use App\Repository\JobRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DefaultController extends AbstractController
 {
-    public function indexAction(){
-        $userName = 'Julien';
-        return $this->render('home.html.twig', ["name" => $userName]);
+    public function indexAction(UserRepository $userRepository, JobRepository $jobRepository){
+        $users = $userRepository->findAll();
+        return $this->render('home.html.twig', ["users" => $users]);
     }
 
     public function nameAction($name)
